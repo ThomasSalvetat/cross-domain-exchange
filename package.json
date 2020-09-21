@@ -5,9 +5,7 @@
   "private": true,
   "scripts": {
     "watch": "webpack --watch",
-    "start": "npm run serve:hub & npm run serve:detail",
-    "serve:hub": "webpack-dev-server --content-base ./dist/hub --port 8080",
-    "serve:detail": "webpack-dev-server --content-base ./dist/detail --port 8081",
+    "start": "webpack-dev-server --content-base ./dist --port 8080",
     "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",

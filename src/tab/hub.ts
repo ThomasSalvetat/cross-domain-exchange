@@ -1,5 +1,5 @@
 
-import * as template from "./partials/homepage.handlebars";
+import * as template from "./partials/hub.handlebars";
 
 function getBrowser() {
     var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 

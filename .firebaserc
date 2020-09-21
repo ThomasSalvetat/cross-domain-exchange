@@ -1,17 +1,5 @@
 {
   "projects": {
     "default": "cross-domain-exchange"
-  },
-  "targets": {
-    "cross-domain-exchange": {
-      "hosting": {
-        "hub": [
-          "cross-domain-exchange-hub"
-        ],
-        "detail": [
-          "cross-domain-exchange-detail"
-        ]
-      }
-    }
   }
 }
