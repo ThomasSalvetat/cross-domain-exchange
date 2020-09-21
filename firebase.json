@@ -2,12 +2,7 @@
   "hosting":[
     {
         "target": "hub",
-        "public": "dist/hub",
-        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-    },
-    {
-        "target": "detail",
-        "public": "dist/detail",
+        "public": "dist",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     }
 ]

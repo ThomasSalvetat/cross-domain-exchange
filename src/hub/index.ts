@@ -41,7 +41,7 @@ function loadContent() {
     document.body.appendChild(div);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-	loadContent();
+window.onload = () => {
+    loadContent();
     listenFolderUpdated(window);
-});
+};

@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
-        "module": "es2015"
+        "module": "es2015",
+        "esModuleInterop": true 
     },
     "include": ["./*.ts"],
     "exclude": ["node_modules", "dist"]
