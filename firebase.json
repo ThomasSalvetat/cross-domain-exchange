@@ -1,0 +1,14 @@
+{
+  "hosting":[
+    {
+        "target": "hub",
+        "public": "dist/hub",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+        "target": "detail",
+        "public": "dist/detail",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+]
+}
