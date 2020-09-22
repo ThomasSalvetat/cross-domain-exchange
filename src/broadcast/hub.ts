@@ -36,8 +36,6 @@ function listenFolderUpdated() {
         const postMessageSupport = document.getElementById('post_message_support') as HTMLTitleElement;
         postMessageSupport.textContent = `This browser (${browserName}) supports broadcast channels()`;
     };
-    console.log("sending init");
-    channel.postMessage({event: 'init'});
 }
 
 function loadContent() {

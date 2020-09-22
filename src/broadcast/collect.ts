@@ -6,8 +6,8 @@ function sendFolderUpdated() {
     const channel = new BroadcastChannel("my_broadcast_channel");
     console.log(channel);
     channel.postMessage({
-        folderSelected: "1234",
-        source: "detail"
+        message: "1234",
+        source: "collect"
     });
 }
 

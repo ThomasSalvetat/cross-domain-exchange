@@ -62,5 +62,6 @@ exports.configs = ({mode}) => [
   config("hub", {customTemplate: "empty", folder: "iframe", mode}),
   config("detail",{ folder: "iframe", mode}),
   config("hub", {customTemplate: "empty", folder: "broadcast", mode}),
-  config("detail",{ folder: "broadcast", mode})
+  config("detail",{ folder: "broadcast", mode}),
+  config("collect",{ folder: "broadcast", mode})
 ];
