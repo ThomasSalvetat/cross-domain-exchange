@@ -27,6 +27,8 @@ function listenFolderUpdated(window: Window) {
     window.addEventListener("message", (event) => {
         console.log('receiving message');
         console.log(event.origin);
+        console.log(event.data);
+
         const responseBody = document.getElementById('response_body') as HTMLPreElement;
         responseBody.textContent = JSON.stringify(event.data);
 
@@ -45,6 +47,14 @@ function loadContent() {
 		browserName
 	});
     document.body.appendChild(div);
+
+    const iframe = document.getElementById('iframe') as HTMLIFrameElement;
+    iframe.onload = function() {
+        const parentWindow = iframe.contentWindow.parent;
+        console.log(parentWindow);
+        console.log(!!parentWindow.postMessage);
+        parentWindow.postMessage({event: 'from iframe'}, '*');
+      };
 }
 
 window.onload = () => {

@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack-dev-server --content-base ./dist --port 8080",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config ./webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +20,11 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "broadcast-channel": "^3.2.0",
+    "es6-promise": "^4.2.8",
+    "ts-polyfill": "^3.8.2"
   }
 }

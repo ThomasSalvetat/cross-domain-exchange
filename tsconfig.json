@@ -2,7 +2,16 @@
     "compilerOptions": {
         "moduleResolution": "node",
         "module": "es2015",
-        "esModuleInterop": true 
+        "esModuleInterop": true ,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ES2015",
+            "ES2016",
+            "ES2016.Array.Include",
+            "ES2018.Promise",
+            "ES2019.Array",
+        ]
     },
     "include": ["./*.ts"],
     "exclude": ["node_modules", "dist"]

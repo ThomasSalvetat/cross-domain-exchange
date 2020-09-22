@@ -11,7 +11,7 @@ const getDistPath = (folder) => {
 };
 
 const getPartialPath = (folder, template) => {
-  return folder ? `./src/${folder}/partials/${template}.handlebars` : `./src/partials/${template}.handlebars`;
+  return folder ? path.join(__dirname, "src", folder, 'partials', `${template}.handlebars`) : path.join(__dirname, "src", 'partials', `${template}.handlebars`);
 };
 
 const config = (name, {customTemplate, folder, mode}) => {
@@ -19,7 +19,7 @@ const config = (name, {customTemplate, folder, mode}) => {
   const folderPath = getFolder(name, folder);
   return {
     mode,
-    entry: `./src/${folderPath}.ts`,
+    entry: path.join(__dirname, 'src', `${folderPath}.ts`),
     output: {
       filename: "main.js",
       path: getDistPath(folder),
@@ -35,7 +35,7 @@ const config = (name, {customTemplate, folder, mode}) => {
           test: /\.handlebars$/,
           loader: "handlebars-loader",
           options: {
-            partialDirs: path.join(__dirname, `/src/partials`),
+            partialDirs: path.join(__dirname, 'src', 'partials'),
           },
         },
       ],
@@ -58,5 +58,9 @@ const config = (name, {customTemplate, folder, mode}) => {
 exports.configs = ({mode}) => [
   config("index",{ mode}),
   config("hub", {customTemplate: "empty", folder: "tab", mode}),
-  config("detail",{ folder: "tab", mode})
+  config("detail",{ folder: "tab", mode}),
+  config("hub", {customTemplate: "empty", folder: "iframe", mode}),
+  config("detail",{ folder: "iframe", mode}),
+  config("hub", {customTemplate: "empty", folder: "broadcast", mode}),
+  config("detail",{ folder: "broadcast", mode})
 ];

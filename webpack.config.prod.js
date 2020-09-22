@@ -1,6 +1,3 @@
-const { hubConfig, detailConfig } = require("./webpack.config.base");
+const { configs } = require("./webpack.config.base");
 
-module.exports = [
-  {...hubConfig, mode: 'production'},
-  {...detailConfig, mode: 'production'},
-];
+module.exports = configs({mode: "production"});

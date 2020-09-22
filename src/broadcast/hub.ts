@@ -1,5 +1,7 @@
 
 import * as template from "./partials/hub.handlebars";
+import './polyfill';
+import { BroadcastChannel } from "broadcast-channel";
 
 function getBrowser() {
     var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
@@ -22,21 +24,20 @@ function getBrowser() {
  const browserInfo = getBrowser();
  const browserName = `${browserInfo.name} - ${browserInfo.version}`;
 
-function listenFolderUpdated(window: Window) {
+function listenFolderUpdated() {
     console.info("Listening folder updated");
-    window.addEventListener("message", (event) => {
+    const channel = new BroadcastChannel("my_broadcast_channel");
+    console.log(channel);
+    channel.onmessage = (message) => {
         console.log('receiving message');
-        console.log(event.origin);
         const responseBody = document.getElementById('response_body') as HTMLPreElement;
-        responseBody.textContent = JSON.stringify(event.data);
+        responseBody.textContent = JSON.stringify(message);
 
         const postMessageSupport = document.getElementById('post_message_support') as HTMLTitleElement;
-        postMessageSupport.textContent = `This browser (${browserName}) supports windows.postMessage()`;
-    }, false);
-
+        postMessageSupport.textContent = `This browser (${browserName}) supports broadcast channels()`;
+    };
     console.log("sending init");
-    console.log(!!window.postMessage);
-    window.postMessage({event: 'init'}, '*');
+    channel.postMessage({event: 'init'});
 }
 
 function loadContent() {
@@ -49,5 +50,5 @@ function loadContent() {
 
 window.onload = () => {
     loadContent();
-    listenFolderUpdated(window);
+    listenFolderUpdated();
 };
